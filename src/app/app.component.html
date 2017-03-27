@@ -1,3 +1,15 @@
-<h1>
-  {{title}}
-</h1>
+New document :
+<input #newDoc />
+<button (click)="addDoc(newDoc.value); newDoc.value=''">
+  Add Document
+</button>
+
+<div>
+  <ul>
+    <li *ngFor="let doc of docs"> 
+      {{doc.id}} - {{doc.docName}}
+      <button (click)="updateDoc(doc, newDoc.value); newDoc.value=''" >Update</button>
+      <button class="delete" (click)="deleteDoc(doc)">x</button> 
+    </li>
+  </ul>
+</div>
